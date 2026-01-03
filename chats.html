@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversations - Mochan-D</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="chats.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Mochan-D</div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="icon">📊</span>
+                <span>Analytics</span>
+            </a>
+            <a href="chats.html" class="nav-item active">
+                <span class="icon">💬</span>
+                <span>Conversations</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">📢</span>
+                <span>Campaigns</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">🤖</span>
+                <span>Bots</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">📦</span>
+                <span>Products</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">👥</span>
+                <span>Contacts</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">U</div>
+                <div class="user-info">
+                    <div class="user-name">User Name</div>
+                    <div class="user-email">user@email.com</div>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="handleLogout()">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="page-title">
+                <h1>Conversations</h1>
+                <p>Manage your WhatsApp conversations and customer interactions</p>
+            </div>
+            
+            <div class="top-bar-actions">
+                <button class="btn-outline">
+                    <span>🔍</span>
+                    Search
+                </button>
+                <button class="btn-primary">
+                    <span>➕</span>
+                    New Message
+                </button>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <section class="chat-container">
+            <!-- Conversations List -->
+            <div class="conversations-panel">
+                <div class="conversations-header">
+                    <h3>All Conversations</h3>
+                    <div class="conversation-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="unread">Unread</button>
+                        <button class="filter-btn" data-filter="active">Active</button>
+                        <button class="filter-btn" data-filter="archived">Archived</button>
+                    </div>
+                </div>
+                
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search conversations..." id="searchInput">
+                </div>
+
+                <div class="conversations-list" id="conversationsList">
+                    <!-- Loading State -->
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Loading conversations...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="chat-window">
+                <div class="chat-empty-state">
+                    <div class="empty-icon">💬</div>
+                    <h3>Select a conversation</h3>
+                    <p>Choose a conversation from the list to view messages</p>
+                </div>
+
+                <!-- Active Chat (hidden by default) -->
+                <div class="active-chat" style="display: none;">
+                    <!-- Chat Header -->
+                    <div class="chat-header">
+                        <div class="chat-header-info">
+                            <div class="contact-avatar">?</div>
+                            <div class="contact-details">
+                                <h3 class="contact-name">Customer Name</h3>
+                                <p class="contact-status">Online</p>
+                            </div>
+                        </div>
+                        <div class="chat-header-actions">
+                            <button class="icon-btn" title="Search in conversation">
+                                <span>🔍</span>
+                            </button>
+                            <button class="icon-btn" title="Contact info">
+                                <span>ℹ️</span>
+                            </button>
+                            <button class="icon-btn" title="More options">
+                                <span>⋮</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Messages -->
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Messages will be loaded here -->
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="chat-input">
+                        <button class="icon-btn">
+                            <span>📎</span>
+                        </button>
+                        <button class="icon-btn">
+                            <span>😊</span>
+                        </button>
+                        <input type="text" placeholder="Type a message..." id="messageInput">
+                        <button class="send-btn" id="sendBtn">
+                            <span>📤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info Panel (optional) -->
+            <div class="contact-info-panel" style="display: none;">
+                <div class="contact-info-header">
+                    <h3>Contact Information</h3>
+                    <button class="close-btn">✕</button>
+                </div>
+                <div class="contact-info-body">
+                    <div class="contact-info-avatar">
+                        <div class="large-avatar">?</div>
+                    </div>
+                    <div class="contact-info-details">
+                        <h3>Customer Name</h3>
+                        <p>+1 234 567 8900</p>
+                    </div>
+                    <div class="contact-info-sections">
+                        <div class="info-section">
+                            <h4>Tags</h4>
+                            <div class="tags">
+                                <span class="tag">VIP</span>
+                                <span class="tag">Regular</span>
+                            </div>
+                        </div>
+                        <div class="info-section">
+                            <h4>Notes</h4>
+                            <textarea placeholder="Add notes about this contact..."></textarea>
+                        </div>
+                        <div class="info-section">
+                            <h4>Quick Actions</h4>
+                            <button class="action-btn">Assign to Team</button>
+                            <button class="action-btn">Archive Chat</button>
+                            <button class="action-btn">Block Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="chats.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochan-D Site Map</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #6366f1;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .page-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 2px solid #6366f1;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .page-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #6366f1;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .page-link:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        }
+        .features {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        .feature-item {
+            padding: 0.5rem 0;
+            color: #475569;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 2rem;
+            color: #6366f1;
+            margin: 1rem 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #10b981;
+            color: white;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        .badge.protected {
+            background: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗺️ Mochan-D Complete Navigation Map</h1>
+        
+        <div class="flow-diagram">
+            <!-- Landing Page -->
+            <div class="page-card">
+                <div class="page-title">
+                    🌐 Main Landing Page <span class="badge">PUBLIC</span>
+                </div>
+                <a href="index.html" class="page-link" target="_blank">Open Landing Page</a>
+                <div class="features">
+                    <strong>Navigate to:</strong>
+                    <div class="feature-item">✓ Click "Sign In" → Goes to Login Page</div>
+                    <div class="feature-item">✓ Click "Get Started" → Goes to Signup Page</div>
+                    <div class="feature-item">✓ Click any CTA button → Goes to Signup</div>
+                </div>
+            </div>
+
+            <div class="arrow">⬇️</div>
+
+            <!-- Auth Pages -->
+            <div class="grid">
+                <div class="page-card">
+                    <div class="page-title">🔐 Login Page <span class="badge">PUBLIC</span></div>
+                    <a href="login.html" class="page-link" target="_blank">Open Login</a>
+                    <div class="features">
+                        <strong>Features:</strong>
+                        <div class="feature-item">✓ Social Login (Google, Apple, Facebook, LinkedIn)</div>
+                        <div class="feature-item">✓ Email/Password Login</div>
+                        <div class="feature-item">✓ After Login → Dashboard</div>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title">📝 Signup Page <span class="badge">PUBLIC</span></div>
+                    <a href="signup.html" class="page-link" target="_blank">Open Signup</a>
+                    <div class="features">
+                        <strong>Features:</strong>
+                        <div class="feature-item">✓ Social Signup (4 options)</div>
+                        <div class="feature-item">✓ Email Registration</div>
+                        <div class="feature-item">✓ Password Strength Meter</div>
+                        <div class="feature-item">✓ After Signup → Dashboard</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">⬇️ After Authentication</div>
+
+            <!-- Dashboard -->
+            <div class="page-card">
+                <div class="page-title">📊 Analytics Dashboard <span class="badge protected">PROTECTED</span></div>
+                <a href="dashboard.html" class="page-link" target="_blank">Open Dashboard</a>
+                <div class="features">
+                    <strong>Features:</strong>
+                    <div class="feature-item">✓ Revenue & Performance Charts</div>
+                    <div class="feature-item">✓ Message Status Analytics</div>
+                    <div class="feature-item">✓ 6 Key Metrics Cards</div>
+                    <div class="feature-item">✓ Quick Actions</div>
+                    <div class="feature-item">✓ Sidebar Navigation to all pages</div>
+                </div>
+            </div>
+
+            <div class="arrow">⬇️ Navigate via Sidebar</div>
+
+            <!-- Dashboard Pages -->
+            <div class="grid">
+                <div class="page-card">
+                    <div class="page-title">💬 Conversations <span class="badge protected">PROTECTED</span></div>
+                    <a href="chats.html" class="page-link" target="_blank">Open Chats</a>
+                    <div class="features">
+                        <strong>Features:</strong>
+                        <div class="feature-item">✓ WhatsApp-style Interface</div>
+                        <div class="feature-item">✓ 5 Sample Conversations</div>
+                        <div class="feature-item">✓ Real-time Messaging</div>
+                        <div class="feature-item">✓ Search & Filters</div>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title">📦 Inventory <span class="badge protected">PROTECTED</span></div>
+                    <a href="inventory.html" class="page-link" target="_blank">Open Inventory</a>
+                    <div class="features">
+                        <strong>Features:</strong>
+                        <div class="feature-item">✓ 6 Sample Products</div>
+                        <div class="feature-item">✓ Add/Edit/Delete Products</div>
+                        <div class="feature-item">✓ Stock Management</div>
+                        <div class="feature-item">✓ Search & Category Filters</div>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title">🛒 Orders <span class="badge protected">PROTECTED</span></div>
+                    <a href="orders.html" class="page-link" target="_blank">Open Orders</a>
+                    <div class="features">
+                        <strong>Features:</strong>
+                        <div class="feature-item">✓ 5 Sample Orders</div>
+                        <div class="feature-item">✓ Status Filtering</div>
+                        <div class="feature-item">✓ Auto-refresh Toggle</div>
+                        <div class="feature-item">✓ Order Details Modal</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">⬇️ Logout</div>
+
+            <!-- Back to Home -->
+            <div class="page-card">
+                <div class="page-title">🏠 Back to Home</div>
+                <div class="features">
+                    <div class="feature-item">✓ Click Logout → Clears Session → Returns to Landing Page</div>
+                    <div class="feature-item">✓ Click Logo on Login/Signup → Returns to Landing Page</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; background: #f8fafc; border-radius: 1rem; border-left: 4px solid #6366f1;">
+            <h2 style="color: #6366f1; margin-bottom: 1rem;">🎯 Quick Test Instructions:</h2>
+            <ol style="color: #475569; line-height: 2;">
+                <li><strong>Start:</strong> Click "Open Landing Page" above</li>
+                <li><strong>Navigate:</strong> Click "Sign In" button on the landing page</li>
+                <li><strong>Login:</strong> Enter any email and password (e.g., test@email.com, password123)</li>
+                <li><strong>Wait:</strong> Form will validate and redirect in 2 seconds</li>
+                <li><strong>Dashboard:</strong> You'll see the Analytics Dashboard with charts</li>
+                <li><strong>Explore:</strong> Use sidebar to navigate to Conversations, Inventory, Orders</li>
+                <li><strong>Logout:</strong> Click Logout button in sidebar to return home</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
+

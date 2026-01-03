@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mochan-D</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Mochan-D</div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+                <span class="icon">📊</span>
+                <span>Analytics</span>
+            </a>
+            <a href="chats.html" class="nav-item">
+                <span class="icon">💬</span>
+                <span>Conversations</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">📢</span>
+                <span>Campaigns</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">🤖</span>
+                <span>Bots</span>
+            </a>
+            <a href="inventory.html" class="nav-item">
+                <span class="icon">📦</span>
+                <span>Products</span>
+            </a>
+            <a href="orders.html" class="nav-item">
+                <span class="icon">🛒</span>
+                <span>Orders</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">👥</span>
+                <span>Contacts</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">⚙️</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">U</div>
+                <div class="user-info">
+                    <div class="user-name">User Name</div>
+                    <div class="user-email">user@email.com</div>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="handleLogout()">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="page-title">
+                <h1>Analytics Dashboard</h1>
+                <p>Monitor your WhatsApp bot performance and ROI</p>
+            </div>
+            
+            <div class="top-bar-actions">
+                <button class="btn-secondary">
+                    <span>📱</span>
+                    Install App
+                </button>
+                <button class="btn-outline">
+                    <span>📥</span>
+                    Export
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Total Revenue</span>
+                    <span class="stat-icon">💰</span>
+                </div>
+                <div class="stat-value">$0</div>
+                <div class="stat-change positive">
+                    <span class="arrow">↑</span> +18% from last month
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Campaign Spend</span>
+                    <span class="stat-icon">💳</span>
+                </div>
+                <div class="stat-value">$0</div>
+                <div class="stat-change positive">
+                    <span class="arrow">↑</span> +8% from last month
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Average Order Value</span>
+                    <span class="stat-icon">📈</span>
+                </div>
+                <div class="stat-value">$0</div>
+                <div class="stat-change positive">
+                    <span class="arrow">↑</span> +12% from last month
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Messages Sent</span>
+                    <span class="stat-icon">📨</span>
+                </div>
+                <div class="stat-value">0</div>
+                <div class="stat-change positive">
+                    <span class="arrow">↑</span> +12% from last month
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">ROI</span>
+                    <span class="stat-icon">📊</span>
+                </div>
+                <div class="stat-value">0%</div>
+                <div class="stat-change positive">
+                    <span class="arrow">↑</span> +28% from last quarter
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Sales Converted</span>
+                    <span class="stat-icon">✅</span>
+                </div>
+                <div class="stat-value">0</div>
+                <div class="stat-badge">ROAS: 0x</div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-card large">
+                <div class="chart-header">
+                    <div>
+                        <h3>Revenue & Performance</h3>
+                        <p>Monthly revenue and message metrics</p>
+                    </div>
+                    <div class="chart-tabs">
+                        <button class="tab-btn active">Overview</button>
+                        <button class="tab-btn">Campaigns</button>
+                        <button class="tab-btn">Products</button>
+                        <button class="tab-btn">Regions</button>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div>
+                        <h3>Message Status</h3>
+                        <p>Current message delivery status</p>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <div class="donut-chart">
+                        <canvas id="messageStatusChart"></canvas>
+                    </div>
+                    <div class="message-stats">
+                        <div class="message-stat-item">
+                            <span class="dot read"></span>
+                            <span class="label">Read</span>
+                            <span class="value">0</span>
+                        </div>
+                        <div class="message-stat-item">
+                            <span class="dot delivered"></span>
+                            <span class="label">Delivered</span>
+                            <span class="value">0</span>
+                        </div>
+                        <div class="message-stat-item">
+                            <span class="dot failed"></span>
+                            <span class="label">Failed</span>
+                            <span class="value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Details -->
+        <section class="details-section">
+            <div class="details-card">
+                <h3>Message Details</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Messages Sent</span>
+                        <span class="detail-value">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Delivered</span>
+                        <span class="detail-value">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Read</span>
+                        <span class="detail-value">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Clicked</span>
+                        <span class="detail-value">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Failed</span>
+                        <span class="detail-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="actions-grid">
+                <button class="action-card">
+                    <span class="action-icon">📢</span>
+                    <span class="action-title">Create Campaign</span>
+                    <span class="action-desc">Start a new marketing campaign</span>
+                </button>
+                <button class="action-card">
+                    <span class="action-icon">🤖</span>
+                    <span class="action-title">Configure Bot</span>
+                    <span class="action-desc">Set up your AI assistant</span>
+                </button>
+                <button class="action-card">
+                    <span class="action-icon">📊</span>
+                    <span class="action-title">View Reports</span>
+                    <span class="action-desc">Detailed analytics reports</span>
+                </button>
+                <button class="action-card">
+                    <span class="action-icon">👥</span>
+                    <span class="action-title">Manage Contacts</span>
+                    <span class="action-desc">View and organize contacts</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
+
