@@ -241,9 +241,6 @@ Replace emoji icons with Font Awesome:
 - ✅ Edge (latest)
 - ✅ Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 🎁 Easter Eggs
-
-Try the Konami code: ↑ ↑ ↓ ↓ ← → ← → B A
 
 ## 📄 License
 
