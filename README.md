@@ -154,6 +154,10 @@ chats.html (Conversations Interface) 💬
 ## 📦 File Structure
 
 ```
+├── .gitignore          # Dependencies and environment build outputs
+├── DESIGN-ENHANCEMENTS.md  # Design enhancement notes
+├── NAVIGATION.md       # Navigation flow documentation
+├── README.md           # Documentation
 ├── index.html          # Main landing page
 ├── login.html          # Login/Sign in page
 ├── signup.html         # Sign up/Registration page
@@ -168,7 +172,17 @@ chats.html (Conversations Interface) 💬
 ├── signup.js           # Signup page functionality
 ├── dashboard.js        # Dashboard functionality and charts
 ├── chats.js            # Chat interface and messaging
-└── README.md           # Documentation
+├── inventory.css       # Inventory page styling
+├── inventory.html      # Inventory page
+├── inventory.js        # Inventory page logic
+├── orders.css          # Orders page styling
+├── orders.html         # Orders page
+├── orders.js           # Orders page logic
+├── site-map.html       # Site map
+```
+├── orders.html         # Orders page
+├── orders.js           # Orders page logic
+└── site-map.html       # Site map
 ```
 
 ## 🚀 Getting Started
